@@ -1,12 +1,12 @@
-import alt from "../libs/alt";
+import alt from '../libs/alt';
 
-import AppStateActions from "./../actions/AppStateActions";
-import {ERROR_STATE} from "./../util/Enumerations";
+import AppStateActions from './../actions/AppStateActions';
+import {ERROR_STATE} from './../util/Enumerations';
 
-import ThemeManager from "material-ui/lib/styles/theme-manager";
-import LightRawTheme from "material-ui/lib/styles/raw-themes/light-raw-theme";
-import Colors from "material-ui/lib/styles/colors";
-import ColorManipulator from "material-ui/lib/utils/color-manipulator";
+import ThemeManager from 'material-ui/lib/styles/theme-manager';
+import LightRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme';
+import Colors from 'material-ui/lib/styles/colors';
+import ColorManipulator from 'material-ui/lib/utils/color-manipulator';
 
 class AppStateStore {
     constructor() {

@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-import AppBase from "./AppBase.jsx";
-import TopMenu from "./util/TopMenu.jsx";
+import AppBase from './AppBase.jsx';
+import TopMenu from './util/TopMenu.jsx';
 
 export default class AppModuleBase extends React.Component {
 

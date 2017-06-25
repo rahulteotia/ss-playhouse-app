@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import RouterContainer from "./../services/RouterContainer";
-import AppStateStore from "./../stores/AppStateStore";
+import RouterContainer from './../services/RouterContainer';
+import AppStateStore from './../stores/AppStateStore';
 
-import NetworkError from "./util/NetworkError.jsx";
+import NetworkError from './util/NetworkError.jsx';
 
 
 export default class App extends React.Component {

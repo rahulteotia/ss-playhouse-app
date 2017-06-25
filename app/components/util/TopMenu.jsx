@@ -1,5 +1,5 @@
-import React from "react";
-import "./../../styles/materialize.css";
+import React from 'react';
+import './../../styles/materialize.css';
 
 
 export default class TopMenu extends React.Component {

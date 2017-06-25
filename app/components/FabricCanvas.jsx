@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDom from "react-dom";
-import {fabric} from "fabric";
-import AppstateActions from "./../actions/AppStateActions";
+import React from 'react';
+import ReactDom from 'react-dom';
+import {fabric} from 'fabric';
+import AppstateActions from './../actions/AppStateActions';
 var fabricCanvas = new fabric.Canvas();
 
 export default class FabricCanvas extends React.Component {

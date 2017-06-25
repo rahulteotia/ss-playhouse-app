@@ -1,12 +1,12 @@
-import "./../styles/login.css";
-import React from "react";
+import './../styles/login.css';
+import React from 'react';
 
-import HomeStore from "./../stores/HomeStore";
-import AppstateActions from "./../actions/AppStateActions";
+import HomeStore from './../stores/HomeStore';
+import AppstateActions from './../actions/AppStateActions';
 
-import AppBase from "./AppBase.jsx";
-import TopMenu from "./util/TopMenu.jsx";
-import FabricCanvas from "./FabricCanvas";
+import AppBase from './AppBase.jsx';
+import TopMenu from './util/TopMenu.jsx';
+import FabricCanvas from './FabricCanvas';
 
 export default class Login extends React.Component {
 

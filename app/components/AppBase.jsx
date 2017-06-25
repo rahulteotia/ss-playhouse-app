@@ -1,6 +1,6 @@
-import React from "react";
-import AppstateActions from "./../actions/AppStateActions";
-import "./../styles/materialize.css";
+import React from 'react';
+import AppstateActions from './../actions/AppStateActions';
+import './../styles/materialize.css';
 var circle = require('./../styles/images/mocks/circle.png');
 var square = require('./../styles/images/mocks/square.png');
 var triangle = require('./../styles/images/mocks/triangle.png');

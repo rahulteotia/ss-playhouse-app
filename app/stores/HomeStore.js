@@ -1,6 +1,6 @@
-import alt from "../libs/alt";
+import alt from '../libs/alt';
 
-import HomeActions from "../actions/HomeActions";
+import HomeActions from '../actions/HomeActions';
 
 
 class HomeStore {

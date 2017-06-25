@@ -1,4 +1,4 @@
-import alt from "../libs/alt";
+import alt from '../libs/alt';
 
 class AppStateActions {
     setErrorState(data) {
