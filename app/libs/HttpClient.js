@@ -13,16 +13,7 @@ const simpleRestClient = defaults();
 const cachedRestClient = defaults();
 const callPrefix = prefix(API_URL);
 
-simpleRestClient.use(callPrefix) // Prefixes request
-    .use(nocache) // Prevents caching
-    .timeout(30000)
-    .withCredentials()
-    .set('domainUuid', '4340fe19-52e8-11e5-9b0a-f0761c68e636');
 
-cachedRestClient.use(callPrefix) // Prefixes request
-    .timeout(30000)
-    .withCredentials()
-    .set('domainUuid', '4340fe19-52e8-11e5-9b0a-f0761c68e636');
 
 export var restClient = simpleRestClient;
 export var cacheRestClient = cachedRestClient;
