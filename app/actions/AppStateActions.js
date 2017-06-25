@@ -56,6 +56,10 @@ class AppStateActions {
     createEditableText(){
         this.dispatch();
     }
+
+    fillComponentColor(data){
+        this.dispatch(data);
+    }
 }
 
 export default alt.createActions(AppStateActions);

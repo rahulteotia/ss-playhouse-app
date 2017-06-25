@@ -29,10 +29,7 @@ class AppStateStore {
     }
 
     setFabricCanvas = (data) => {
-        console.log('new ' + data.fabricCanvas);
-
         this.fabricCanvas = data.fabricCanvas;
-        console.log(this.fabricCanvas);
         this.emitChange();
     }
 
@@ -348,6 +345,13 @@ class AppStateStore {
             top: 100,
         }));
         this.fabricCanvas.renderAll();
+    }
+
+    fillComponentColor = (data) => {
+        console.log(data);
+        this.fabricCanvas.getActiveObject().setFill(data.background);
+        this.fabricCanvas.renderAll();
+        this.emitChange();
     }
 
     getCustomTheme() {

@@ -7,13 +7,16 @@ import AppstateActions from './../actions/AppStateActions';
 import AppBase from './AppBase.jsx';
 import TopMenu from './util/TopMenu.jsx';
 import FabricCanvas from './FabricCanvas';
+import { SketchPicker } from 'react-color';
 
 export default class Login extends React.Component {
 
 
     constructor(props) {
         super(props);
-        this.state = HomeStore.getState();
+        this.state = {
+            background: '#fff',
+        }
     }
 
     componentWillMount() {
@@ -50,6 +53,7 @@ export default class Login extends React.Component {
                 <div onDragOver={this.preventDefault} onDrop={this.drawShape} className="bottom-menu-container"
                      style={{}}>
                     <FabricCanvas onDragEnd={this.checkevent}/>
+                    <SketchPicker color={ this.state.background } onChangeComplete={ this.handleChangeComplete }/>
                 </div>
 
             </AppBase>
@@ -68,6 +72,11 @@ export default class Login extends React.Component {
     preventDefault = (event) => {
         event.preventDefault();
     }
+
+    handleChangeComplete = (color) => {
+        this.setState({ background: color.hex });
+        AppstateActions.fillComponentColor({ background: color.hex });
+    };
 
     drawShape = (event) => {
         var shape = event.dataTransfer.getData('shape');
