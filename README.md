@@ -1,7 +1,7 @@
 # Canvas Playground App
 A demo app to play with shapes in 2D space on canvas.
 
-The application is based on [ReactJS](https://facebook.github.io/react/) and uses [Flux architecture](https://facebook.github.io/flux/docs/overview.html). [Flux architecture](https://facebook.github.io/flux/docs/overview.html)is simply a new kind of architecture that complements React and the concept of Unidirectional Data Flow. Please [read](https://scotch.io/tutorials/getting-to-know-flux-the-react-js-architecture) to know more about flux architecture.
+The application is based on [ReactJS](https://facebook.github.io/react/) and uses [Flux architecture](https://facebook.github.io/flux/docs/overview.html). [Flux architecture](https://facebook.github.io/flux/docs/overview.html) is simply a new kind of architecture that complements React and the concept of Unidirectional Data Flow. Please [read](https://scotch.io/tutorials/getting-to-know-flux-the-react-js-architecture) to know more about flux architecture.
 
 The setting up of environment is done using [Npm](https://www.npmjs.com/), [Babel](https://babeljs.io/) and [Webpack](https://webpack.js.org/). 
 
@@ -24,3 +24,5 @@ Please follow these steps to get up and running with the app.
 4. Once the above step is complete, please run ```npm start``` from the same location.
 
 You can now access the app from location [http://localhost:5556/](http://localhost:5556/)
+
+If you need to change the port on which application to run, please refer to webpack.config.js and search for port under devServer.
