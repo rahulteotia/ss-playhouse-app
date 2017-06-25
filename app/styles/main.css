@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,300,500');
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,500'); */
+@import url('./material-icons.css');
+
+.app-body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html * {
+    font-family: 'Roboto', sans-serif;
+}
+
+#app-base-container {
+    width: 100%;
+    height: 100%;
+    min-width: 80%;
+    min-height: 60%;
+}
+
+.app-wrapper {
+    width: 98%;
+    height: 98%;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+}
+
+.left-pane-container {
+    height: 100%;
+    width: 20%;
+    min-width: 280px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.left-navigation-container {
+    height: 100%;
+
+    width: 100%;
+}
+
+.left-navigation-container div:first-of-type {
+    position: inherit !important;
+    /*width: 100%;*/
+}
+
+.left-navigation-container div:first-of-type div:first-of-type {
+    width: 100%;
+    display: inherit !important;
+}
+
+.right-pane-container {
+    flex-grow: 1;
+    /*background-color: #32503b;*/
+    height: 100%;
+    /*width: 90%;*/
+    min-width: 80%;
+    flex-direction: row;
+
+}
+
+.top-menu-container {
+    width: 100%;
+    min-height: 100px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
+    border-radius: 2px;
+    overflow: hidden;
+    z-index: 10;
+    flex-grow: 1;
+}
+
+.bottom-menu-container {
+    margin-top: 20px;
+    margin-left: 15px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 10;
+    flex-grow: 1;
+
+}
+
+.content-container {
+    width: 100%;
+}
+
+.content-wrapper {
+    height: 100%;
+    /*width: 1560px;*/
+    margin-top: 70px;
+    margin-left: 80px;
+    margin-bottom: 50px;
+}
+
+#canvascontainer {
+
+    margin-left: 5px;
+}
+
+.canvas-container {
+    border: 1px solid #e15960;
+    box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
+
+}
+
+.shapes-img {
+    max-width: 30%;
+    max-height: 12%;
+}
+
+.label-img {
+    max-width: 30%;
+    max-height: 5%;
+    flex-grow: 1;
+}
+
+.rectangle-img {
+    max-width: 35%;
+    max-height: 10%;
+}
+
+.circle-img {
+    max-width: 30%;
+    max-height: 10%;
+}
+
+.ellipse-img {
+    max-width: 40%;
+    max-height: 12%;
+}
