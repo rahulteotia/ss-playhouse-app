@@ -3,9 +3,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 
 import React from 'react';
-import { render } from 'react-dom';
-import Router, {IndexRoute, Route, Link } from 'react-router';
-import {createHashHistory } from 'history';
+import {render} from 'react-dom';
+import Router, {IndexRoute, Route} from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 import Home from './components/Home.jsx';
@@ -19,16 +18,8 @@ import RouterContainer from './services/RouterContainer';
 import 'array.prototype.findindex';
 
 import {APP_BASE_PATH} from './util/Constant';
-import alt from './libs/alt';
-import storage from './libs/storage';
-import persist from './libs/persist';
-import { createHistory, useBasename } from 'history';
 
 
-//Needed for onTouchTap
-//Can go away when react 1.0 release
-//Check this repo:
-//https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 main();
 

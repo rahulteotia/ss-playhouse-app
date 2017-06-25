@@ -1,5 +1,5 @@
 {
-  "htmlTemplatePath":"env/dev/dev_index.html",
+  "htmlTemplatePath": "env/dev/dev_index.html",
   "appBasePath": "/",
   "apiBaseUrl": "http://localhost:8080"
 }

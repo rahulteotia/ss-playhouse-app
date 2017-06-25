@@ -33,62 +33,67 @@ export default class AppBase extends React.Component {
 
 
     render() {
-        const menuItemLeftPad = '56px';
-        const menuItemWidth = '20px';
-        const textColor = this.context.themeSettings.c_left_pane_text;
 
-        let buttonText = this.state.freeDrawing?'Disable Free Drawing':'Enable Free Drawing';
-        let buttonStyle = this.state.freeDrawing?'btn blue-grey darken-1':'btn waves-effect red lighten-1';
+        let buttonText = this.state.freeDrawing ? 'Disable Free Drawing' : 'Enable Free Drawing';
+        let buttonStyle = this.state.freeDrawing ? 'btn blue-grey darken-1' : 'btn waves-effect red lighten-1';
         return (
             <div className="app-wrapper">
 
                 <div className="left-pane-container">
-                    <div className="row">
+                    <div style={{height: '100px', width: '400px'}} className="app-shapes">
                         <div className="col s12 ">
                             <div className="card blue-grey darken-1">
                                 <div className="card-content white-text">
                                     <span className="card-title">Hello there!</span>
-                                    <p>Please drag & drop or double click shapes to add them to canvas.</p>
                                     <br></br>
-                                    <p>Use free drawing to use pen.</p>
+                                    <p>1. Please drag & drop or double click shapes to add them to canvas.</p>
+                                    <br></br>
+                                    <p>2. Select shape from canvas and choose color.</p>
+                                    <br></br>
+                                    <p>3. Double click on shape to remove from canvas.</p>
+                                    <br></br>
+                                    <p>4. Shapes added can be rotated and resized.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <img src={circle} className="circle-img" draggable="true" onDoubleClick={this.addCircle}
-                         onDragStart={this.dragImage.bind(null, 'circle')}/>
-                    <img src={triangle} className="shapes-img" onDoubleClick={this.addTriangle}
-                         onDragStart={this.dragImage.bind(null, 'triangle')}/>
-                    <img src={square} className="shapes-img" onDoubleClick={this.addSquare}
-                         onDragStart={this.dragImage.bind(null, 'square')}/>
-                    <img src={rectangle} className="rectangle-img" onDoubleClick={this.addRectangle}
-                         onDragStart={this.dragImage.bind(null, 'rectangle')}/>
-                    <img src={ellipse} className="ellipse-img" onDoubleClick={this.addEllipse}
-                         onDragStart={this.dragImage.bind(null, 'ellipse')}/>
-                    <img src={diamond} className="shapes-img" onDoubleClick={this.addDiamond}
-                         onDragStart={this.dragImage.bind(null, 'diamond')}/>
-                    <img src={parallelogram} className="shapes-img" onDoubleClick={this.addParallelogram}
-                         onDragStart={this.dragImage.bind(null, 'parallelogram')}/>
-                    <img src={pentagon} className="shapes-img" onDoubleClick={this.addPentagon}
-                         onDragStart={this.dragImage.bind(null, 'pentagon')}/>
-                    <img src={line} onDoubleClick={this.addLine} onDragStart={this.dragImage.bind(null, 'line')}/>
-
-                    <img src={reverseparallelogram} className="shapes-img" onDoubleClick={this.addReverseParallelogram}
-                         onDragStart={this.dragImage.bind(null, 'reverseparallelogram')}/>
-                    <img src={hexagon} className="shapes-img" onDoubleClick={this.addHexagon}
-                         onDragStart={this.dragImage.bind(null, 'hexagon')}/>
-                    <div>
-                        <button onClick={this.addLabel} className={buttonStyle} type="submit" style={{marginLeft: '10px'}}
-                                name="action"><i className="material-icons left">edit</i>{buttonText}
-                        </button>
+                        <img src={circle} className="circle-img" draggable="true" onDoubleClick={this.addCircle}
+                             onDragStart={this.dragImage.bind(null, 'circle')}/>
+                        <img src={triangle} className="shapes-img" onDoubleClick={this.addTriangle}
+                             onDragStart={this.dragImage.bind(null, 'triangle')}/>
+                        <img src={square} className="shapes-img" onDoubleClick={this.addSquare}
+                             onDragStart={this.dragImage.bind(null, 'square')}/>
+                        <img src={rectangle} className="rectangle-img" onDoubleClick={this.addRectangle}
+                             onDragStart={this.dragImage.bind(null, 'rectangle')}/>
+                        <img src={ellipse} className="ellipse-img" onDoubleClick={this.addEllipse}
+                             onDragStart={this.dragImage.bind(null, 'ellipse')}/>
+                        <img src={diamond} className="shapes-img" onDoubleClick={this.addDiamond}
+                             onDragStart={this.dragImage.bind(null, 'diamond')}/>
+                        <img src={parallelogram} className="shapes-img" onDoubleClick={this.addParallelogram}
+                             onDragStart={this.dragImage.bind(null, 'parallelogram')}/>
+                        <img src={pentagon} className="shapes-img" onDoubleClick={this.addPentagon}
+                             onDragStart={this.dragImage.bind(null, 'pentagon')}/>
+                        <img src={line} onDoubleClick={this.addLine}
+                             onDragStart={this.dragImage.bind(null, 'line')}/>
+                        <img src={reverseparallelogram} className="shapes-img"
+                             onDoubleClick={this.addReverseParallelogram}
+                             onDragStart={this.dragImage.bind(null, 'reverseparallelogram')}/>
+                        <img src={hexagon} className="shapes-img" onDoubleClick={this.addHexagon}
+                             onDragStart={this.dragImage.bind(null, 'hexagon')}/>
+                        <div>
+                            <button id="button-free-drawing" onClick={this.addLabel} className={buttonStyle}
+                                    type="submit"
+                                    style={{marginLeft: '50px'}}
+                                    name="action"><i className="material-icons left">edit</i>{buttonText}
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div className="right-pane-container"
-                     style={{
-                         backgroundColor: this.context.themeSettings.c_main_pane
-                     }}
+                < div
+                    className="right-pane-container"
+
                 >
-                    {this.props.children}
+                    {this.props.children
+                    }
 
                 </div>
             </div>
@@ -160,9 +165,6 @@ export default class AppBase extends React.Component {
 
 }
 
-AppBase.contextTypes = {
-    themeSettings: React.PropTypes.object.isRequired
-};
 
 AppBase.propTypes = {};
 

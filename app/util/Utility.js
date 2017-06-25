@@ -72,8 +72,8 @@ export function convertDateStringtoDate(dateString) {
 }
 
 export function getDateInSqlFormat(date) {
-    var dd = date.getDate() < 10 ? '0' +  date.getDate() : date.getDate();
-    var mm = date.getMonth()  + 1; //January is 0!
+    var dd = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    var mm = date.getMonth() + 1; //January is 0!
     var monthFormatted = mm < 10 ? '0' + mm : mm;
     var yyyy = date.getFullYear();
     return yyyy + '-' + monthFormatted + '-' + dd;

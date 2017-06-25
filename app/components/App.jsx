@@ -35,7 +35,6 @@ export default class App extends React.Component {
 
     componentWillMount() {
         document.body.className = 'app-body';
-        //console.log('Router', this.context.history);
         this.setRouterInfo();
 
     }
@@ -51,10 +50,10 @@ export default class App extends React.Component {
         const networkError = this.state.networkError;
         //console.log('NETWORK ERROR', networkError);
         return (
-            <div id="app-base-container">
+            <div>
 
                 {/* Render the child route component */}
-                {networkError? <NetworkError />: this.props.children}
+                {networkError ? <NetworkError /> : this.props.children}
 
             </div>
         );

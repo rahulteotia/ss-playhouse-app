@@ -12,8 +12,6 @@ class AppStateStore {
     constructor() {
         this.bindActions(AppStateActions);
         this.networkError = false;
-        this.muiTheme = this.getCustomTheme();
-        this.themeSettings = this.getThemeSettings();
         this.fabricCanvas = null;
     }
 
@@ -111,7 +109,6 @@ class AppStateStore {
 
     createCircle = () => {
         this.resetFreeDrawing();
-        // all our action handler can just talk directly to fabric
         this.fabricCanvas.add(new fabric.Circle({
             type: 'circle',
             originX: 'center',
@@ -150,7 +147,6 @@ class AppStateStore {
 
     createRectangle = () => {
         this.resetFreeDrawing();
-        // all our action handler can just talk directly to fabric
         this.fabricCanvas.add(new fabric.Rect({
             type: 'rect',
             originX: 'center',
@@ -207,7 +203,6 @@ class AppStateStore {
 
     createrReverseParallelogram = () => {
         this.resetFreeDrawing();
-        // all our action handler can just talk directly to fabric
         this.fabricCanvas.add(new fabric.Polygon([{x: -100, y: -50}, {x: 50, y: -50}, {x: 0, y: 50}, {
             x: -150,
             y: 50
@@ -230,7 +225,6 @@ class AppStateStore {
 
     createParallelogram = () => {
         this.resetFreeDrawing();
-        // all our action handler can just talk directly to fabric
         this.fabricCanvas.add(new fabric.Polygon([{x: -200, y: -50}, {x: -50, y: -50}, {x: 0, y: 50}, {
             x: -150,
             y: 50
@@ -390,44 +384,6 @@ class AppStateStore {
         } else {
             activeObject.setFill(data.background);
         }
-    }
-
-    getCustomTheme() {
-        const rawTheme = ThemeManager.getMuiTheme(LightRawTheme);
-        const customTheme = this.getThemeSettings();
-        return ThemeManager.modifyRawThemePalette(rawTheme, customTheme);
-    }
-
-    getThemeSettings() {
-
-        return {
-            primary1Color: '#77d6c5',
-            primary2Color: '#A1887F',
-            primary3Color: Colors.lightBlack,
-            accent1Color: '#6E82BF',
-            accent2Color: Colors.grey100,
-            accent3Color: Colors.grey500,
-            textColor: Colors.darkBlack,
-            alternateTextColor: Colors.white,
-            canvasColor: Colors.white,
-            borderColor: Colors.grey300,
-            disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3),
-            c_main_pane: '#ffffff',
-            c_top_menu_1: '#E4A88C',
-            c_top_menu_2: '#E29B7B',
-            c_top_menu_3: '#DD8F6B',
-            c_menu_notifications: '#D77B4C',
-            c_menu_settings: '#77d6c5',
-            c_menu_logoff: '#CC6230',
-            c_top_menu_font_size: '18px',
-            c_tableHeaderTextColor: Colors.white,
-            c_record_pane: '#E3DFD9',
-            c_table_row: '#EEF0EF',
-            c_menu_height: '40px',
-            c_main_avatar: '#795548',
-            c_left_pane: '#A1887F',
-            c_left_pane_text: 'white'
-        };
     }
 }
 

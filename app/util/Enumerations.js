@@ -5,7 +5,6 @@ export const ERROR_STATE = {
 };
 
 
-
 function getByIndex(enumType, index) {
     for (var enumKey in enumType) {
         const item = enumType[enumKey];

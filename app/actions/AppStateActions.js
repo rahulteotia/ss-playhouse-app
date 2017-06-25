@@ -53,15 +53,15 @@ class AppStateActions {
         this.dispatch();
     }
 
-    createPencilBrush(){
+    createPencilBrush() {
         this.dispatch();
     }
 
-    fillComponentColor(data){
+    fillComponentColor(data) {
         this.dispatch(data);
     }
 
-    resetFreeDrawing(){
+    resetFreeDrawing() {
         this.dispatch();
     }
 }

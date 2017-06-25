@@ -1,4 +1,4 @@
-import { History } from 'react-router';
+import {History} from 'react-router';
 
 var _router = null;
 var _location = null;

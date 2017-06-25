@@ -4,54 +4,62 @@
 
 .app-body, html {
     height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 html * {
     font-family: 'Roboto', sans-serif;
 }
 
-#app-base-container {
-    width: 100%;
-    height: 100%;
-    min-width: 80%;
-    min-height: 60%;
-}
+
 
 .app-wrapper {
-    width: 98%;
-    height: 98%;
+    max-width: 84%;
+    max-height: 90%;
     display: flex;
-    flex-direction: row;
-    position: absolute;
+}
+
+@media only screen and (min-width: 1380px) {
+    .app-wrapper {
+        max-width: 98%;
+    }
+
+    #button-free-drawing{
+        margin-top: 50px;
+    }
 }
 
 .left-pane-container {
-    height: 100%;
-    width: 20%;
-    min-width: 280px;
+    flex-grow: 1;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-    position: relative;
+}
+
+.app-shapes {
     display: flex;
     flex-wrap: wrap;
 }
-
-.left-navigation-container {
-    height: 100%;
-
-    width: 100%;
+.shapes-img {
+    width: 100px;  /* Or whatever */
+    height: 100px; /* Or whatever */
 }
 
-.left-navigation-container div:first-of-type {
-    position: inherit !important;
-    /*width: 100%;*/
+.rectangle-img {
+    width: 100px;  /* Or whatever */
+    height: 80px; /* Or whatever */
+    margin: auto;
 }
 
-.left-navigation-container div:first-of-type div:first-of-type {
-    width: 100%;
-    display: inherit !important;
+.circle-img {
+    width: 90px;  /* Or whatever */
+    height: 80px; /* Or whatever */
+    margin: auto;
 }
+
+.ellipse-img {
+    width: 100px;  /* Or whatever */
+    height: 60px; /* Or whatever */
+    margin: auto;
+}
+
 
 .right-pane-container {
     flex-grow: 1;
@@ -70,7 +78,7 @@ html * {
     border-radius: 2px;
     overflow: hidden;
     z-index: 10;
-    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .bottom-menu-container {
@@ -92,13 +100,7 @@ html * {
     width: 100%;
 }
 
-.content-wrapper {
-    height: 100%;
-    /*width: 1560px;*/
-    margin-top: 70px;
-    margin-left: 80px;
-    margin-bottom: 50px;
-}
+
 
 #canvascontainer {
 
@@ -111,26 +113,4 @@ html * {
 
 }
 
-.shapes-img {
-    max-width: 30%;
-    max-height: 12%;
-    margin-left: 10px;
-}
 
-
-
-.rectangle-img {
-    max-width: 35%;
-    max-height: 10%;
-}
-
-.circle-img {
-    max-width: 30%;
-    max-height: 10%;
-}
-
-.ellipse-img {
-    max-width: 40%;
-    max-height: 12%;
-    margin-left: 10px;
-}

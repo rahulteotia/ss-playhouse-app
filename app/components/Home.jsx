@@ -1,4 +1,3 @@
-import './../styles/login.css';
 import React from 'react';
 
 import HomeStore from './../stores/HomeStore';
@@ -56,19 +55,6 @@ export default class Login extends React.Component {
                     <FabricCanvas onDragEnd={this.checkevent}/>
                     <div className="color-picker-container">
                         <SketchPicker color={ this.state.background } onChangeComplete={ this.handleChangeComplete }/>
-                        <div className="row">
-                            <div className="col s12 ">
-                                <div className="card blue-grey darken-1">
-                                    <div className="card-content white-text">
-                                        <p>1. Select shape from canvas and choose color.</p>
-                                        <br></br>
-                                        <p>2. Double click on shape to remove from canvas.</p>
-                                        <br></br>
-                                        <p>3. Shapes added can be rotated and resized.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </AppBase>
