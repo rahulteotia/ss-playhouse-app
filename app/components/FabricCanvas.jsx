@@ -21,7 +21,7 @@ export default class FabricCanvas extends React.Component {
 
         var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
         var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-        var widthn = width - 450;
+        var widthn = width - 250;
         var heightn = height - 250;
 
         // Here we have the canvas so we can initialize fabric

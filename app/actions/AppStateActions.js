@@ -53,12 +53,16 @@ class AppStateActions {
         this.dispatch();
     }
 
-    createEditableText(){
+    createPencilBrush(){
         this.dispatch();
     }
 
     fillComponentColor(data){
         this.dispatch(data);
+    }
+
+    resetFreeDrawing(){
+        this.dispatch();
     }
 }
 

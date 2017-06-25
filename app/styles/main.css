@@ -80,9 +80,14 @@ html * {
     overflow: hidden;
     z-index: 10;
     display: flex;
-    flex-wrap: nowrap
 }
 
+.color-picker-container{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .content-container {
     width: 100%;
 }
@@ -109,13 +114,10 @@ html * {
 .shapes-img {
     max-width: 30%;
     max-height: 12%;
+    margin-left: 10px;
 }
 
-.label-img {
-    max-width: 30%;
-    max-height: 5%;
-    flex-grow: 1;
-}
+
 
 .rectangle-img {
     max-width: 35%;
@@ -130,4 +132,5 @@ html * {
 .ellipse-img {
     max-width: 40%;
     max-height: 12%;
+    margin-left: 10px;
 }

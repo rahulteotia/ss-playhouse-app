@@ -18,6 +18,10 @@ export default class AppBase extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            freeDrawing: false,
+        }
     }
 
     componentDidMount() {
@@ -32,6 +36,9 @@ export default class AppBase extends React.Component {
         const menuItemLeftPad = '56px';
         const menuItemWidth = '20px';
         const textColor = this.context.themeSettings.c_left_pane_text;
+
+        let buttonText = this.state.freeDrawing?'Disable Free Drawing':'Enable Free Drawing';
+        let buttonStyle = this.state.freeDrawing?'btn blue-grey darken-1':'btn waves-effect red lighten-1';
         return (
             <div className="app-wrapper">
 
@@ -43,7 +50,7 @@ export default class AppBase extends React.Component {
                                     <span className="card-title">Hello there!</span>
                                     <p>Please drag & drop or double click shapes to add them to canvas.</p>
                                     <br></br>
-                                    <p>Once added they can be rotated or resize accordingly.</p>
+                                    <p>Use free drawing to use pen.</p>
                                 </div>
                             </div>
                         </div>
@@ -70,9 +77,11 @@ export default class AppBase extends React.Component {
                          onDragStart={this.dragImage.bind(null, 'reverseparallelogram')}/>
                     <img src={hexagon} className="shapes-img" onDoubleClick={this.addHexagon}
                          onDragStart={this.dragImage.bind(null, 'hexagon')}/>
-                    <img src={label} className="label-img" onDoubleClick={this.addLabel}
-                         onDragStart={this.dragImage.bind(null, 'label')}/>
-
+                    <div>
+                        <button onClick={this.addLabel} className={buttonStyle} type="submit" style={{marginLeft: '10px'}}
+                                name="action"><i className="material-icons left">edit</i>{buttonText}
+                        </button>
+                    </div>
                 </div>
                 <div className="right-pane-container"
                      style={{
@@ -131,12 +140,19 @@ export default class AppBase extends React.Component {
     }
 
     addLabel = () => {
-        AppstateActions.createEditableText();
+        if (this.state.freeDrawing) {
+            this.state.freeDrawing = false;
+            AppstateActions.resetFreeDrawing();
+        } else {
+            this.state.freeDrawing = true;
+            AppstateActions.createPencilBrush();
+        }
     }
 
     dragImage = (shape, event) => {
         event.dataTransfer.setData('shape', shape);
     }
+
     preventDefault = (event) => {
         event.preventDefault();
     }

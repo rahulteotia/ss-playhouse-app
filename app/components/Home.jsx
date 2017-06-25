@@ -7,7 +7,8 @@ import AppstateActions from './../actions/AppStateActions';
 import AppBase from './AppBase.jsx';
 import TopMenu from './util/TopMenu.jsx';
 import FabricCanvas from './FabricCanvas';
-import { SketchPicker } from 'react-color';
+import {SketchPicker} from 'react-color';
+import './../styles/materialize.css';
 
 export default class Login extends React.Component {
 
@@ -53,9 +54,23 @@ export default class Login extends React.Component {
                 <div onDragOver={this.preventDefault} onDrop={this.drawShape} className="bottom-menu-container"
                      style={{}}>
                     <FabricCanvas onDragEnd={this.checkevent}/>
-                    <SketchPicker color={ this.state.background } onChangeComplete={ this.handleChangeComplete }/>
+                    <div className="color-picker-container">
+                        <SketchPicker color={ this.state.background } onChangeComplete={ this.handleChangeComplete }/>
+                        <div className="row">
+                            <div className="col s12 ">
+                                <div className="card blue-grey darken-1">
+                                    <div className="card-content white-text">
+                                        <p>1. Select shape from canvas and choose color.</p>
+                                        <br></br>
+                                        <p>2. Double click on shape to remove from canvas.</p>
+                                        <br></br>
+                                        <p>3. Shapes added can be rotated and resized.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </AppBase>
         )
     }
@@ -74,8 +89,8 @@ export default class Login extends React.Component {
     }
 
     handleChangeComplete = (color) => {
-        this.setState({ background: color.hex });
-        AppstateActions.fillComponentColor({ background: color.hex });
+        this.setState({background: color.hex});
+        AppstateActions.fillComponentColor({background: color.hex});
     };
 
     drawShape = (event) => {
@@ -126,7 +141,7 @@ export default class Login extends React.Component {
         }
 
         if (shape == 'label') {
-            AppstateActions.createEditableText();
+            AppstateActions.createPencilBrush();
         }
 
     }

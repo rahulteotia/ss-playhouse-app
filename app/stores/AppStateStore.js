@@ -34,6 +34,7 @@ class AppStateStore {
     }
 
     createTriangle = () => {
+        this.resetFreeDrawing();
         this.fabricCanvas.add(new fabric.Triangle({
             originX: 'center',
             originY: 'center',
@@ -69,6 +70,7 @@ class AppStateStore {
     }
 
     createSquare = () => {
+        this.resetFreeDrawing();
         console.log('old ' + this.fabricCanvas);
         this.fabricCanvas.add(new fabric.Rect({
             type: 'rect',
@@ -108,6 +110,7 @@ class AppStateStore {
     }
 
     createCircle = () => {
+        this.resetFreeDrawing();
         // all our action handler can just talk directly to fabric
         this.fabricCanvas.add(new fabric.Circle({
             type: 'circle',
@@ -146,6 +149,7 @@ class AppStateStore {
     }
 
     createRectangle = () => {
+        this.resetFreeDrawing();
         // all our action handler can just talk directly to fabric
         this.fabricCanvas.add(new fabric.Rect({
             type: 'rect',
@@ -183,6 +187,7 @@ class AppStateStore {
     }
 
     createDiamond = () => {
+        this.resetFreeDrawing();
         this.fabricCanvas.add(new fabric.Polygon([{x: 0, y: -75}, {x: 50, y: 0}, {x: 0, y: 75}, {x: -50, y: 0}], {
             top: 180,
             originX: 'center',
@@ -201,6 +206,7 @@ class AppStateStore {
     }
 
     createrReverseParallelogram = () => {
+        this.resetFreeDrawing();
         // all our action handler can just talk directly to fabric
         this.fabricCanvas.add(new fabric.Polygon([{x: -100, y: -50}, {x: 50, y: -50}, {x: 0, y: 50}, {
             x: -150,
@@ -223,6 +229,7 @@ class AppStateStore {
     }
 
     createParallelogram = () => {
+        this.resetFreeDrawing();
         // all our action handler can just talk directly to fabric
         this.fabricCanvas.add(new fabric.Polygon([{x: -200, y: -50}, {x: -50, y: -50}, {x: 0, y: 50}, {
             x: -150,
@@ -245,6 +252,7 @@ class AppStateStore {
     }
 
     createPentagon = () => {
+        this.resetFreeDrawing();
         var pentagon = new fabric.Polygon([
                 {x: 220, y: 0},
                 {x: 300, y: 50},
@@ -274,6 +282,7 @@ class AppStateStore {
     }
 
     createHexagon = () => {
+        this.resetFreeDrawing();
         this.fabricCanvas.add(new fabric.Polygon([{x: 820, y: 125},
                 {x: 900, y: 187.5},
                 {x: 900, y: 262.5},
@@ -299,6 +308,7 @@ class AppStateStore {
     }
 
     createEllipse = () => {
+        this.resetFreeDrawing();
         // all our action handler can just talk directly to fabric
         this.fabricCanvas.add(new fabric.Ellipse({
             top: 150,
@@ -323,6 +333,7 @@ class AppStateStore {
     }
 
     createLine = () => {
+        this.resetFreeDrawing();
         this.fabricCanvas.add(new fabric.Line([100, 0, 100, 100], {
                 top: 100,
                 originX: 'left',
@@ -338,20 +349,47 @@ class AppStateStore {
         this.fabricCanvas.renderAll();
     }
 
-    createEditableText = () => {
-        this.fabricCanvas.add(new fabric.IText('Tap and Type', {
-            fontSize: 30,
-            left: 100,
-            top: 100,
-        }));
+    resetFreeDrawing = () => {
+        this.fabricCanvas.isDrawingMode = 0;
+        this.emitChange();
+    }
+
+    createPencilBrush = () => {
+        this.fabricCanvas.isDrawingMode = 1;
+        this.fabricCanvas.freeDrawingBrush.color = 'purple';
+        this.fabricCanvas.freeDrawingBrush.width = 10;
         this.fabricCanvas.renderAll();
+        this.emitChange();
     }
 
     fillComponentColor = (data) => {
-        console.log(data);
-        this.fabricCanvas.getActiveObject().setFill(data.background);
+        var activeGroup = this.fabricCanvas.getActiveGroup();
+        if (activeGroup) {
+            var activeObjects = activeGroup.getObjects();
+            for (let index in activeObjects) {
+                this.fillcolor(activeObjects[index], data);
+            }
+        } else {
+            var activeObject = this.fabricCanvas.getActiveObject();
+            if (activeObject) {
+                if (activeObject.get('type') == 'path') {
+                    this.fillcolor(activeObject, data);
+                } else {
+                    this.fillcolor(activeObject, data);
+                }
+            }
+        }
+
         this.fabricCanvas.renderAll();
         this.emitChange();
+    }
+
+    fillcolor = (activeObject, data) => {
+        if (activeObject.get('type') == 'path' || activeObject.get('type') == 'line') {
+            activeObject.setStroke(data.background);
+        } else {
+            activeObject.setFill(data.background);
+        }
     }
 
     getCustomTheme() {
